@@ -65,13 +65,11 @@ function searchCity(city) {
   //  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(currentWeather);
-  console.log(city);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
-  console.log(city);
   searchCity(city);
 }
 let formaCity = document.querySelector("#formaCity");
@@ -85,27 +83,4 @@ function showLocation(position) {
   axios.get(apiUrl).then(currentWeather);
 }
 
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showLocation);
-}
-
-let currentLocation = document.querySelector("#current-location-button");
-currentLocation.addEventListener("click", getCurrentLocation);
-
-searchCity("Kyiv");
-
-// function celsius() {
-//   let celsiusTemperature = document.querySelector("#temperature");
-//   celsiusTemperature.innerHTML = `${temperature}`;
-// }
-// let celsiusTemperature = document.querySelector("#celsius-link");
-// celsiusTemperature.addEventListener("click", celsius);
-
-// function fahrenheit() {
-//   let celsiusTemperature = document.querySelector("#temperature");
-//   let fahrenheitTemperature = Math.round((temperature * 9) / 5 + 32);
-//   celsiusTemperature.innerHTML = `${fahrenheitTemperature}`;
-// }
-// let fahrenheitTemperature = document.querySelector("#fahrenheit-link");
-// fahrenheitTemperature.addEventListener("click", fahrenheit);
+searchCity(navigator.geolocation.getCurrentPosition(showLocation));
