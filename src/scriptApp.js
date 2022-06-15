@@ -84,3 +84,22 @@ function showLocation(position) {
 }
 
 searchCity(navigator.geolocation.getCurrentPosition(showLocation));
+
+let quotes = [
+  `The weather is perfect. The gods are shining on us.`,
+  `Bad weather always looks worse through a window.`,
+  `I've never been one to bet on the weather.`,
+  `Wherever you go, no matter what the weather,</br> always bring your own sunshine.`,
+  `There is no such thing as bad weather,</br> only different kinds of good weather.`,
+  `There's no such thing as bad weather, just soft people.`,
+  `If you want to see the sunshine, you have to weather the storm.`,
+];
+function getAphorism(values) {
+  const max = values.length - 1;
+  const min = 0;
+  const index = Math.round(Math.random() * (max - min) + min);
+  const result = values[index];
+  return result;
+}
+document.querySelector(".aphorism").innerHTML = getAphorism(quotes);
+// document.querySelector(".aphorism").innerHTML = handleSubmit();
