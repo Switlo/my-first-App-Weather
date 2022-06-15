@@ -57,6 +57,7 @@ function currentWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  document.querySelector(".aphorism").innerHTML = getAphorism(quotes);
 }
 
 function searchCity(city) {
@@ -101,5 +102,3 @@ function getAphorism(values) {
   const result = values[index];
   return result;
 }
-document.querySelector(".aphorism").innerHTML = getAphorism(quotes);
-// document.querySelector(".aphorism").innerHTML = handleSubmit();
